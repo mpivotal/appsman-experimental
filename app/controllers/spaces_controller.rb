@@ -1,5 +1,6 @@
 class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :edit, :update, :destroy]
+  before_action :set_org, only: [:show, :new, :create, :edit, :update, :destroy]
 
   # GET /spaces
   # GET /spaces.json
@@ -28,7 +29,7 @@ class SpacesController < ApplicationController
 
     respond_to do |format|
       if @space.save
-        format.html { redirect_to @space, notice: 'Space was successfully created.' }
+        format.html { redirect_to org_spaces_url, notice: 'Space was successfully created.' }
         format.json { render :show, status: :created, location: @space }
       else
         format.html { render :new }
@@ -56,7 +57,7 @@ class SpacesController < ApplicationController
   def destroy
     @space.destroy
     respond_to do |format|
-      format.html { redirect_to spaces_url, notice: 'Space was successfully destroyed.' }
+      format.html { redirect_to org_spaces_path, notice: 'Space was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,10 @@ class SpacesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_space
       @space = Space.find(params[:id])
+    end
+
+    def set_org
+      @org = Org.find(params[:org_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

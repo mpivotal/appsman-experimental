@@ -7,8 +7,8 @@
 
 <p>
   <strong>Org:</strong>
-  <%= @space.org %>
+  <%= link_to @space.org.name, @org %>
 </p>
 
-<%= link_to 'Edit', edit_space_path(@space) %> |
-<%= link_to 'Back', spaces_path %>
+<%= link_to 'Edit', edit_org_space_path(@space) %> |
+<%= link_to 'Back', org_spaces_path %>
