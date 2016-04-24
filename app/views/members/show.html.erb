@@ -7,18 +7,20 @@
 
 <p>
   <strong>Org:</strong>
-  <%= @member.org %>
+  <%= @member.org.name %>
 </p>
 
 <p>
   <strong>Space:</strong>
-  <%= @member.space %>
+  <%= @member.space.name %>
 </p>
 
 <p>
   <strong>Roles:</strong>
+
   <%= @member.roles %>
+
 </p>
 
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<%= link_to 'Edit', url_for([:edit, @member.org, @member]) %> |
+<%= link_to 'Back', org_members_path %>

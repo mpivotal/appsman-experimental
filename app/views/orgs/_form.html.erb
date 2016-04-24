@@ -1,4 +1,4 @@
-<%= form_for(org) do |f| %>
+<%= form_for(@org) do |f| %>
   <% if org.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(org.errors.count, "error") %> prohibited this org from being saved:</h2>

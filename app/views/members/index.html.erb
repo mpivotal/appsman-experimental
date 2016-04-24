@@ -17,12 +17,12 @@
     <% @members.each do |member| %>
       <tr>
         <td><%= member.email %></td>
-        <td><%= member.org %></td>
-        <td><%= member.space %></td>
+        <td><%= member.org.name %></td>
+        <td><%= member.space.name %></td>
         <td><%= member.roles %></td>
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', org_member_path(member.org, member) %></td>
+        <td><%= link_to 'Edit', org_member_path(member.org, member), action: 'edit' %></td>
+        <td><%= link_to 'Destroy', org_member_path(member.org, member), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Member', new_member_path %>
+<%= link_to 'New Member', new_org_member_path %>

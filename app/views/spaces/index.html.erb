@@ -17,7 +17,7 @@
         <td><%= space.name %></td>
         <td><%= space.org.name %></td>
         <td><%= link_to 'Show', org_space_path(space.org, space) %></td>
-        <td><%= link_to 'Edit', org_space_path(space.org, space), method: 'edit' %></td>
+        <td><%= link_to 'Edit', url_for([:edit, space.org, space]) %></td>
         <td><%= link_to 'Destroy', org_space_path(space.org, space), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

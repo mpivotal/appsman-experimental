@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_org, only: [:show, :new, :create, :edit, :update, :destroy]
 
   # GET /members
   # GET /members.json
@@ -28,7 +29,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
+        format.html { redirect_to org_members_url, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class MembersController < ApplicationController
   def update
     respond_to do |format|
       if @member.update(member_params)
-        format.html { redirect_to @member, notice: 'Member was successfully updated.' }
+        format.html { redirect_to org_member_url(@member), notice: 'Member was successfully updated.' }
         format.json { render :show, status: :ok, location: @member }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     respond_to do |format|
-      format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
+      format.html { redirect_to org_members_path, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,10 @@ class MembersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_member
       @member = Member.find(params[:id])
+    end
+
+    def set_org
+      @org = Org.find(params[:org_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
