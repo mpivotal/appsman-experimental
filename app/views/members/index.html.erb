@@ -7,7 +7,6 @@
     <tr>
       <th>Email</th>
       <th>Org</th>
-      <th>Space</th>
       <th>Roles</th>
       <th colspan="3"></th>
     </tr>
@@ -18,7 +17,6 @@
       <tr>
         <td><%= member.email %></td>
         <td><%= member.org.name %></td>
-        <td><%= member.space.name %></td>
         <td><%= member.roles %></td>
         <td><%= link_to 'Show', org_member_path(member.org, member) %></td>
         <td><%= link_to 'Edit', org_member_path(member.org, member), action: 'edit' %></td>

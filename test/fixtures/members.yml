@@ -3,11 +3,9 @@
 one:
   email: email_1@example.com
   org: one
-  space: one
   roles: MyText
 
 two:
   email: email_2@example.com
   org: two
-  space: two
   roles: MyText

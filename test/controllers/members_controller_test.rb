@@ -18,7 +18,7 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create member" do
     assert_difference('Member.count') do
-      post org_members_url(@org), params: { member: { email: 'email@example.com', org_id: @member.org_id, roles: [], space_id: @member.space_id } }
+      post org_members_url(@org), params: { member: { email: 'email@example.com', org_id: @member.org_id, roles: [] } }
     end
 
     assert_redirected_to org_members_path(@org)
@@ -35,7 +35,7 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update member" do
-    patch org_member_url(@org, @member), params: { member: { email: @member.email, org_id: @member.org_id, roles: [], space_id: @member.space_id } }
+    patch org_member_url(@org, @member), params: { member: { email: @member.email, org_id: @member.org_id, roles: [] } }
     assert_redirected_to org_member_url(@member)
   end
 
