@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.0'
 
 group :production do
   gem 'rails_12factor'
+  gem 'mysql2'
+  gem 'pg'
 end
 
 group :development, :test do
