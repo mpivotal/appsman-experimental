@@ -18,7 +18,7 @@ class MainControllerTest < ActionDispatch::IntegrationTest
 
 
   test "should redirect to new" do
-    puts 'TODO: should redirect to new'
+    puts 'TODO'
     # get root_url
     # assert_redirected_to new_org_url
   end
