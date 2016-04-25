@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @space.name
+%p
+  %strong Org:
+  = link_to @space.org.name, @org
+= link_to 'Edit', edit_org_space_path(@space)
+|
+= link_to 'Back', org_spaces_path

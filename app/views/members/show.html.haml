@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Email:
+  = @member.email
+%p
+  %strong Org:
+  = @member.org.name
+%p
+  %strong Roles:
+  = @member.roles
+= link_to 'Edit', url_for([:edit, @member.org, @member])
+|
+= link_to 'Back', org_members_path

@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Spaces
+%table
+  %thead
+    %tr
+      %th Name
+      %th Org
+      %th{:colspan => "3"}
+  %tbody
+    - @spaces.each do |space|
+      %tr
+        %td= space.name
+        %td= space.org.name
+        %td= link_to 'Show', org_space_path(space.org, space)
+        %td= link_to 'Edit', url_for([:edit, space.org, space])
+        %td= link_to 'Destroy', org_space_path(space.org, space), method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Space', new_org_space_path
