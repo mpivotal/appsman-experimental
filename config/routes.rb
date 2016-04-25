@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'main/home'
+
   resources :orgs do
     resources :members
     resources :spaces
@@ -7,4 +9,7 @@ Rails.application.routes.draw do
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
+
+  root to: 'main#home'
+
 end
