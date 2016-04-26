@@ -7,7 +7,7 @@ Spaces:
 %ul
   - @org.spaces.each do |space|
     %li
-      = link_to space.name, org_space_path(space)
+      = link_to space.name, space_path(space)
 = link_to 'New Space', url_for([:new, @org, :space])
 %hr/
 Members:

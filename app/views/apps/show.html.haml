@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Application name:
+  = @app.application_name
+%p
+  %b Application uris:
+  = @app.application_uris
+%p
+  %b State:
+  = @app.state
+%p
+  %b Limits:
+  = @app.limits
+%p
+  %b Details:
+  = @app.details
+%p
+  %b Space:
+  = @app.space.name
+%p
+  %b Buildpack:
+  = @app.buildpack
+%p
+  %b Last uploaded:
+  = @app.last_uploaded
+%p
+  %b Services:
+  = @app.services
+
+= link_to 'Edit', url_for([:edit, @app.space, @app])
+\|
+= link_to 'Back', space_apps_path

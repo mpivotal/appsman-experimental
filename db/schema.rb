@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425000638) do
+ActiveRecord::Schema.define(version: 20160426003426) do
+
+  create_table "apps", force: :cascade do |t|
+    t.string   "application_name"
+    t.text     "application_uris"
+    t.string   "state"
+    t.text     "limits"
+    t.string   "details"
+    t.integer  "space_id"
+    t.string   "buildpack"
+    t.datetime "last_uploaded"
+    t.text     "services"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "apps", ["space_id"], name: "index_apps_on_space_id"
 
   create_table "members", force: :cascade do |t|
     t.string   "email"

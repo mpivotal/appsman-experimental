@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  application_name: MyString
+  application_uris: MyText
+  state: MyString
+  limits: MyText
+  details: MyString
+  space: one
+  buildpack: MyString
+  last_uploaded: 2016-04-25 17:35:16
+  services: MyText
+
+two:
+  application_name: MyString
+  application_uris: MyText
+  state: MyString
+  limits: MyText
+  details: MyString
+  space: two
+  buildpack: MyString
+  last_uploaded: 2016-04-25 17:35:16
+  services: MyText

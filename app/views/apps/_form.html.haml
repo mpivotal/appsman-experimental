@@ -1,0 +1,36 @@
+= form_for [@space, @app] do |f|
+  - if @app.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@app.errors.count, "error")} prohibited this app from being saved:"
+      %ul
+        - @app.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :space_id, value: @space.id
+
+  .field
+    = f.label :application_name
+    = f.text_field :application_name
+  .field
+    = f.label :application_uris
+    = f.text_area :application_uris
+  .field
+    = f.label :state
+    = f.text_field :state
+  .field
+    = f.label :limits
+    = f.text_area :limits
+  .field
+    = f.label :details
+    = f.text_field :details
+  .field
+    = f.label :buildpack
+    = f.text_field :buildpack
+  .field
+    = f.label :last_uploaded
+    = f.datetime_select :last_uploaded
+  .field
+    = f.label :services
+    = f.text_area :services
+  .actions
+    = f.submit 'Save'

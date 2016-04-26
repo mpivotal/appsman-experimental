@@ -1,6 +1,6 @@
 class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :edit, :update, :destroy]
-  before_action :set_org, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_org, only: [:index, :new, :create, :destroy]
 
   # GET /spaces
   # GET /spaces.json
@@ -43,7 +43,7 @@ class SpacesController < ApplicationController
   def update
     respond_to do |format|
       if @space.update(space_params)
-        format.html { redirect_to org_space_url(@space), notice: 'Space was successfully updated.' }
+        format.html { redirect_to space_url(@space), notice: 'Space was successfully updated.' }
         format.json { render :show, status: :ok, location: @space }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SpacesController < ApplicationController
   def destroy
     @space.destroy
     respond_to do |format|
-      format.html { redirect_to org_spaces_path, notice: 'Space was successfully destroyed.' }
+      format.html { redirect_to org_spaces_path(@org), notice: 'Space was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

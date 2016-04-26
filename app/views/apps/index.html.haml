@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%h1 Listing apps
+
+%table
+  %thead
+    %tr
+      %th Application name
+      %th Application uris
+      %th State
+      %th Limits
+      %th Details
+      %th Space
+      %th Buildpack
+      %th Last uploaded
+      %th Services
+      %th
+      %th
+      %th
+
+  %tbody
+    - @apps.each do |app|
+      %tr
+        %td= app.application_name
+        %td= app.application_uris
+        %td= app.state
+        %td= app.limits
+        %td= app.details
+        %td= app.space.name
+        %td= app.buildpack
+        %td= app.last_uploaded
+        %td= app.services
+        %td= link_to 'Show', space_app_path(app.space, app)
+        %td= link_to 'Edit', space_app_path(app.space, app), action: 'edit'
+        %td= link_to 'Destroy', space_app_path(app.space, app), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New App', new_space_app_path
