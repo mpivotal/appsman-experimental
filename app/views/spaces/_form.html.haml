@@ -7,8 +7,10 @@
       %ul
         - space.errors.full_messages.each do |message|
           %li= message
+
   - if params[:org_id]
     = f.hidden_field :org_id, value: @org.id
+
   .field
     = f.label :name
     = f.text_field :name

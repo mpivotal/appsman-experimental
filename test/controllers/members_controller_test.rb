@@ -41,9 +41,8 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy member" do
     assert_difference('Member.count', -1) do
-      delete org_member_url(@org, @member)
+      delete url_for(@member), params: { org_id: @org.id }
     end
-
-    assert_redirected_to org_members_path
+    assert_redirected_to org_members_path(@org)
   end
 end

@@ -4,15 +4,16 @@ class AppsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @app = apps(:one)
     @space = spaces(:one)
+    @org = orgs(:one)
   end
 
   test "should get index" do
-    get apps_url
+    get space_apps_url(@org, @space)
     assert_response :success
   end
 
   test "should get new" do
-    get new_space_app_url(@space)
+    get new_space_apps_url(@space)
     assert_response :success
   end
 

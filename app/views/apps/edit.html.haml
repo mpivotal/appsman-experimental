@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', space_app_path
+= link_to 'Show', app_path(@app)
 \|
-= link_to 'Back', space_apps_path
+= link_to 'Back', space_apps_path(space_id: @app.space_id)

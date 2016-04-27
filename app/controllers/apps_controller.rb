@@ -1,6 +1,6 @@
 class AppsController < ApplicationController
   before_action :set_app, only: [:show, :edit, :update, :destroy]
-  before_action :set_space, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_space, only: [:index, :new, :create, :destroy]
 
   # GET /apps
   # GET /apps.json
@@ -57,7 +57,7 @@ class AppsController < ApplicationController
   def destroy
     @app.destroy
     respond_to do |format|
-      format.html { redirect_to space_apps_path, notice: 'App was successfully destroyed.' }
+      format.html { redirect_to space_apps_path(@space), notice: 'App was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

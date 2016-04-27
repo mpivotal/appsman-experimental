@@ -14,7 +14,7 @@ Members:
 %ul
   - @org.members.each do |member|
     %li
-      = link_to member.email, org_member_path(member)
+      = link_to member.email, member_path(member)
 = link_to 'New Member', url_for([:new, @org, :member])
 %hr/
 = link_to 'Edit', edit_org_path(@org)

@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
   resources :orgs do
-    resources :members
-    resources :spaces, shallow: true
-  end
-
-  resources :spaces do
-    resources :apps, shallow: true
+    resources :members, shallow: true
+    resources :spaces, shallow: true do
+      resources :apps, shallow: true
+    end
   end
 
   get 'main/home'

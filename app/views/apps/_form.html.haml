@@ -6,7 +6,8 @@
         - @app.errors.full_messages.each do |msg|
           %li= msg
 
-  = f.hidden_field :space_id, value: @space.id
+  - if params[:space_id]
+    = f.hidden_field :space_id, value: @space.id
 
   .field
     = f.label :application_name

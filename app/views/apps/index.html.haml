@@ -30,9 +30,9 @@
         %td= app.buildpack
         %td= app.last_uploaded
         %td= app.services
-        %td= link_to 'Show', space_app_path(app.space, app)
-        %td= link_to 'Edit', space_app_path(app.space, app), action: 'edit'
-        %td= link_to 'Destroy', space_app_path(app.space, app), :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', app_path(app)
+        %td= link_to 'Edit', url_for([:edit, app])
+        %td= link_to 'Destroy', app_path(app, params: { space_id: app.space.id } ), method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 

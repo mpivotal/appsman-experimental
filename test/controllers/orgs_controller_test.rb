@@ -42,7 +42,6 @@ class OrgsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Org.count', -1) do
       delete org_url(@org)
     end
-
     assert_redirected_to orgs_path
   end
 end
