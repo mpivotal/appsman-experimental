@@ -25,25 +25,24 @@ class SpacesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show space" do
-    get org_space_url(@org, @space)
+    get space_path(@org, @space)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_org_space_url(@org, @space)
+    get edit_space_path(@org, @space)
     assert_response :success
   end
 
   test "should update space" do
-    patch org_space_url(@org, @space), params: { space: { name: @space.name, org_id: @space.org_id } }
-    assert_redirected_to org_space_url(@space)
+    patch space_url(@space), params: { space: { org_id: @space.org_id } }
+    assert_redirected_to space_url(@space)
   end
 
   test "should destroy space" do
     assert_difference('Space.count', -1) do
-      delete org_space_url(@org, @space)
+      delete url_for(@space), params: { org_id: @org.id }
     end
-
-    assert_redirected_to org_spaces_path
+    assert_redirected_to org_spaces_path(@org)
   end
 end
